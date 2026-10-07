@@ -26,3 +26,7 @@ To install by hand, copy a folder from `skills/` into your agent's skills folder
 
 Ask your agent in plain words, for example "orchestrate this task", or call a skill by name, for
 example `/ca-orchestrate` in Claude Code.
+
+## License
+
+MIT. See `LICENSE`.
