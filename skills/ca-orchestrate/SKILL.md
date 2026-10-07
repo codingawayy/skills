@@ -1,6 +1,6 @@
 ---
 name: ca-orchestrate
-description: Design how to execute a task with an AI coding agent — assemble a team of contrasting personas with clear responsibilities, right-size the machinery (inline vs. subagents vs. a multi-agent workflow, effort, models, a WIP scratchpad) to the task, write the plan to a file, get approval, then run it until the key personas are proud of the result. Invoke when the user runs /ca-orchestrate, or asks for the best way to tackle a substantial multi-step or parallelizable task — to "orchestrate", "plan the approach/execution", "assemble a team", "use subagents or a workflow for this", or to break a big task into a coordinated agent plan.
+description: Design how to execute a task with an AI coding agent — assemble a team of contrasting personas with clear responsibilities, right-size the machinery (inline vs. subagents vs. separate sessions, effort, models, a WIP scratchpad) to the task, write the plan to a file, get approval, then run it until the key personas are proud of the result. Invoke when the user runs /ca-orchestrate, or asks for the best way to tackle a substantial multi-step or parallelizable task — to "orchestrate", "plan the approach/execution", "assemble a team", "use subagents for this", or to break a big task into a coordinated agent plan.
 ---
 
 # Orchestrating a task
@@ -17,9 +17,6 @@ Agents differ in what they can delegate. Use what yours has, and fall back in th
 - **Subagents** (a fresh context the agent spawns itself) — best for parallel chunks and for fresh-context review.
 - **A separate session** — when the agent cannot spawn subagents, start a new session with a self-contained prompt and the files it needs. It gives the same fresh context, at the cost of a manual hand-off.
 - **Inline** — when neither is practical. For review, do a separate pass that reads only the result and the pride bar, not your own reasoning, and say in the report that the review was not independent.
-
-A **multi-agent workflow tool** (a scripted fan-out of many agents, such as Claude Code's Workflow tool) is the heaviest option. Use one only if your agent has it and the user approves it.
-
 ## Procedure
 
 1. **Size the task.** When unsure, pick the smaller size.
@@ -28,9 +25,9 @@ A **multi-agent workflow tool** (a scripted fan-out of many agents, such as Clau
 
 2. **Assemble the team.** Contrasting personas, one responsibility each, a concrete pride bar each, key ones marked. → `reference/team.md`
 
-3. **Design the plan.** Decompose only far enough to route the work: what runs inline, what goes to parallel subagents or sessions, what (if anything) earns a multi-agent workflow, where effort or a stronger model is needed, and which persona owns each item. Use the skills, agent types and tools your agent actually has; check its limits. → `reference/limits.md`
+3. **Design the plan.** Decompose only far enough to route the work: what runs inline, what goes to parallel subagents or sessions, where effort or a stronger model is needed, and which persona owns each item. Use the skills, agent types and tools your agent actually has; check its limits. → `reference/limits.md`
 
-4. **Write the plan, then stop.** Save it to `wip/{yyyy.MM.dd}_{short-task}/plan.md` (or the project's own scratch folder) and present the tier, team, strategy and items. → `reference/plan-format.md`. Until the user approves, do not dispatch a subagent, launch a workflow, or edit code. The user may change the team.
+4. **Write the plan, then stop.** Save it to `wip/{yyyy.MM.dd}_{short-task}/plan.md` (or the project's own scratch folder) and present the tier, team, strategy and items. → `reference/plan-format.md`. Until the user approves, do not dispatch a subagent, start a session, or edit code. The user may change the team.
 
 5. **Execute.** If your agent has a task list, mirror open items into it; the plan file wins if they drift. If the work turns out much smaller or larger than sized, stop, re-size, and note it in the plan.
 

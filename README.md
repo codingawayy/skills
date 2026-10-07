@@ -19,6 +19,7 @@ To install by hand, copy a folder from `skills/` into your agent's skills folder
 
 | Skill            | What it does                                                                                                                                          |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ca-challenge`   | Stress-tests a plan you already settled on: a panel of independent agents attacks its premise, approach, consequences, and blind spots, grounded in live web search, and returns the challenges that would most change the plan. |
 | `ca-orchestrate` | Plans how to run a substantial task: a team of contrasting personas, the least machinery that fits, a plan file you approve, and a review gate where each key persona signs off with evidence. |
 | `ca-organize`    | Rules for where information lives across files and folders: one home per fact, no file-to-file pointers, one index per folder, and timeless documents. |
 
